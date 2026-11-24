@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Memory store",
+    "description": "Records conversations, tool calls, and subagent runs from every workspace into one local SQLite memory database shared by all Sessions; identical meaning only accumulates count and time, and matched memories re-enter the context before the model reads a step. The panel lives in Settings and on the plugin's own page.",
+    "detail": "docs/DETAIL.md"
+  }
+}

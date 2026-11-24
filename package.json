@@ -1,0 +1,91 @@
+{
+  "name": "dsh-memory-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DeepSeek Harness 的本地记忆库与 QQ 聊天通道：记录每个会话到本地 SQLite，整理成记忆卡并按需注入，同时通过界面自动化在 QQ 里收发消息（含语音识别）。",
+  "license": "MIT",
+  "author": "H-ATK",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "memory",
+    "sqlite",
+    "qq",
+    "voice"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.3"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "store.js",
+    "tools.js",
+    "normalize.js",
+    "retrieve.js",
+    "normalizer.js",
+    "inject.js",
+    "capture.js",
+    "vectors.js",
+    "repairs.js",
+    "routes.js",
+    "runtime.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "test",
+    "search-tool.js",
+    "zip.js",
+    "tsconfig.json",
+    "types",
+    "style.js",
+    "test/habits-history.mjs",
+    "personas.js",
+    "mood.js",
+    "proactive.js",
+    "body.js",
+    "models.js",
+    "intent.js",
+    "skills.js",
+    "observer.js",
+    "backup.js",
+    "narrative.js",
+    "voice.js",
+    "stt.js",
+    "qq-bridge.js",
+    "qq-commands.js",
+    "qq-voice.js",
+    "scripts/*"
+  ],
+  "scripts": {
+    "verify": "node test/lint.mjs && node test/zip.mjs && node test/replay.mjs && node test/normalize.mjs && node test/retrieve.mjs && node test/merge.mjs && node test/memory-model.mjs",
+    "e2e": "node --experimental-loader ./test/e2e/loader.mjs test/e2e.mjs",
+    "all": "npm run verify && npm run e2e && npm run typecheck",
+    "typecheck": "node node_modules/typescript/bin/tsc -p tsconfig.json"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "dependencies": {
+    "sherpa-onnx-node": "^2.0.3"
+  }
+}

@@ -1,0 +1,3 @@
+- insert:
+    - id: memory-store
+      name: dsh-memory-store

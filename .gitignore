@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build and package artifacts
+*.tgz
+*.zip
+dist/
+
+# Local data must never be committed: the memory database holds real conversations.
+*.db
+*.db-wal
+*.db-shm
+*.log
+
+# Speech models are hundreds of megabytes; download them separately, never commit them.
+models/
+*.onnx
+*.wav
+
+# Scratch scripts used while probing sherpa-onnx locally
+sherpa-*.mjs
+
+# Editor and OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.bak
+
+# Scratch space
+.tmp/
